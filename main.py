@@ -41,12 +41,12 @@ while True:
         ip = get('https://api.ipify.org').content.decode('utf8')
         log(f"[+] GOT IP {ip}...")
     except Exception as e: 
-        log(f"[-] COULD NOT GET IP...RETRYING IN {sleep_time} MINUTES")
+        log(f"[-] COULD NOT GET IP...RETRYING IN {wait_time} MINUTES")
         time.sleep(sleep_time)
     try:
         update = get(f"http://{username}:{password}@dynupdate.no-ip.com/nic/update?hostname={domain_name}&myip={ip}")
-        log(f"[+] UPDATED IP TO {ip}...WATINING {sleep_time} MINUTES")
+        log(f"[+] UPDATED IP TO {ip}...WATINING {wait_time} MINUTES")
         time.sleep(sleep_time)
     except Exception as e: 
-        log(f"[-] COULD NOT UPDATE IP...RETRYING IN {sleep_time} MINUTES")
+        log(f"[-] COULD NOT UPDATE IP...RETRYING IN {wait_time} MINUTES")
         time.sleep(sleep_time)

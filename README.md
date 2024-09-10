@@ -31,7 +31,8 @@ password = 'your_password'
 ## Docker run command
 ```bash
 docker run -dit --name no-ip-duc \
-    -v /path/to/config:/config \
+    -v /path/to/config:/app/config \
+    -v /path/to/logs:/app/logs \
     --network host \
     --restart unless-stopped \
     -e DOMAIN=your.domain.com \
